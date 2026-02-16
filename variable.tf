@@ -21,6 +21,7 @@ variable "my_vpc" {
 variable "my_security_group" {
   description = "Name of the security group"
   type        = string
+  default     = "my-security-group"
 }
 
 # ----------------------------
@@ -31,10 +32,10 @@ variable "env" {
   default     = "prd"
 }
 # ----------------------------
-# Variable security group
+# Instance Type
 # ----------------------------
 variable "instance_type" {
   description = "Name of instance size"
-  default     = "t3.small"
+  default     = "t3.medium"
   type        = string
 }
