@@ -1,5 +1,5 @@
-resource local_file new_file {
+resource "local_file" "new_file" {
 
-	content="The Taj Mahal"
-	filename="file.json"
+  content  = "The Taj Mahal"
+  filename = "file.json"
 }

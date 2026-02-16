@@ -1,6 +1,6 @@
-resource local_file my_file {
+resource "local_file" "my_file" {
 
 
-	content="Hello Deepak Gehlot"
-	filename="automation.txt"	
+  content  = "Hello Deepak Gehlot"
+  filename = "automation.txt"
 }
