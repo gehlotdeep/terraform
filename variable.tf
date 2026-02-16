@@ -28,8 +28,8 @@ variable "my_security_group" {
 # Variable Volume EBS
 # ----------------------------
 variable "env" {
-  type        = string
-  default     = "prd"
+  type    = string
+  default = "prd"
 }
 # ----------------------------
 # Instance Type
