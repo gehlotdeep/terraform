@@ -4,7 +4,7 @@
 variable "volume_ebs" {
   description = "Elastic Block Storage size (in GB)"
   type        = number
-  default     = 8
+  default     = 16
 }
 
 # -----------------------------
