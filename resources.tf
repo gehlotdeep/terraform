@@ -4,7 +4,7 @@
 resource "aws_instance" "my_instance" {
   ami           = "ami-03446a3af42c5e74e"
   instance_type = var.instance_type
-
+  user_data	= file("nginx.sh")
   ebs_block_device {
     device_name = "/dev/sda1"
     volume_size = var.env == "prd" ? 16 : var.volume_ebs

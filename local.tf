@@ -7,6 +7,10 @@ locals {
     {
       port        = 80
       description = "Apache Server"
+    },
+    {
+      port        = 443
+      description = "Nginx Server"
     }
   ]
 }
