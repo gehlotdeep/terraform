@@ -28,7 +28,7 @@ variable "my_security_group" {
 # ----------------------------
 variable "env" {
   type        = string
-  default     = "dev"
+  default     = "prd"
 }
 # ----------------------------
 # Variable security group
