@@ -6,9 +6,9 @@ terraform {
     }
   }
   backend "s3" {
-    bucket         = "sdeep21june"
-    key            = "terraform.tfstate"
-    region         = "eu-west-1"
-    dynamodb_table = "dynamodb-table"
+    bucket       = "sdeep21june"
+    key          = "env/terraform.tfstate"
+    region       = "eu-west-2"
+    use_lockfile = true
   }
 }

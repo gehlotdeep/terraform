@@ -29,7 +29,7 @@ variable "my_security_group" {
 # ----------------------------
 variable "env" {
   type    = string
-  default = "prd"
+  default = "dev"
 }
 # ----------------------------
 # Instance Type
