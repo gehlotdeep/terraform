@@ -12,10 +12,10 @@ resource "tls_private_key" "key_tls" {
 resource "aws_key_pair" "deployer" {
   key_name   = "${var.env}-private"
   public_key = tls_private_key.key_tls.public_key_openssh
-  
+
   tags = {
     Environment = var.env
- }
+  }
 }
 
 # --------------------------------------------------
@@ -26,7 +26,7 @@ resource "aws_vpc" "my_vpc" {
   enable_dns_hostnames = true
 
   tags = {
-    Name = "${var.env}-my_vpc"
+    Name        = "${var.env}-my_vpc"
     Environment = var.env
   }
 }
@@ -41,7 +41,7 @@ resource "aws_subnet" "my_subnet" {
   map_public_ip_on_launch = true
 
   tags = {
-    Name = "${var.env}-public-subnet"
+    Name        = "${var.env}-public-subnet"
     Environment = var.env
   }
 }
@@ -53,7 +53,7 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = aws_vpc.my_vpc.id
 
   tags = {
-    Name = "${var.env}-my-igw"
+    Name        = "${var.env}-my-igw"
     Environment = var.env
   }
 }
@@ -70,7 +70,7 @@ resource "aws_route_table" "public_rt" {
   }
 
   tags = {
-    Name = "${var.env}-public-route-table"
+    Name        = "${var.env}-public-route-table"
     Environment = var.env
   }
 }
@@ -110,7 +110,7 @@ resource "aws_security_group" "my_security_group" {
 # EC2 Instance
 # --------------------------------------------------
 resource "aws_instance" "my_instance" {
-  count			      = var.instance_count
+  count                       = var.instance_count
   ami                         = var.ec2_ami_id
   instance_type               = var.instance_type
   subnet_id                   = aws_subnet.my_subnet.id
@@ -126,7 +126,7 @@ resource "aws_instance" "my_instance" {
   }
 
   tags = {
-    Name = "${var.env}-infra-app-ec2"
+    Name        = "${var.env}-infra-app-ec2"
     Environment = var.env
   }
 }
@@ -143,7 +143,7 @@ resource "aws_route_table_association" "public_asso" {
 # Save Private Key Locally
 # --------------------------------------------------
 resource "local_file" "private_key" {
-  count	  	  = var.instance_count
+  count           = var.instance_count
   content         = tls_private_key.key_tls.private_key_pem
   filename        = pathexpand("~/.ssh/${var.env}-deployer-${count.index}.pem")
   file_permission = "0400"
