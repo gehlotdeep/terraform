@@ -1,4 +1,13 @@
 # -----------------------------
+# Key Pair
+# -----------------------------
+variable "key_pair"{
+  description = "Private key"
+  default = "my-key"
+  type    = string
+}
+
+# -----------------------------
 # EBS Volume Size Variable
 # -----------------------------
 variable "volume_ebs" {
