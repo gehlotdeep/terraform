@@ -4,7 +4,7 @@ module "dev-infra" {
   bucket_name    = "sdeep21june"
   instance_count = "1"
   instance_type  = "t2.medium"
-  ec2_ami_id     = "ami-0620fe646b4b76c81"
+  ec2_ami_id     = "ami-051a31ab2f4d498f5"
   hash_key       = "studentID"
   dynamodb_table = "dev"
 }
@@ -15,7 +15,7 @@ module "prd-infra" {
   bucket_name    = "sdeep21june"
   instance_count = "1"
   instance_type  = "t2.large"
-  ec2_ami_id     = "ami-075f150fc1ca69e71"
+  ec2_ami_id     = "ami-051a31ab2f4d498f5"
   hash_key       = "studentID"
   dynamodb_table = "prd"
 }
@@ -26,7 +26,7 @@ module "stg-infra" {
   bucket_name    = "sdeep21june"
   instance_count = "2"
   instance_type  = "t2.medium"
-  ec2_ami_id     = "ami-018ff7ece22bf96db"
+  ec2_ami_id     = "ami-019715e0d74f695be"
   hash_key       = "studentID"
   dynamodb_table = "stg"
 }
