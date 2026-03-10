@@ -131,6 +131,18 @@ resource "aws_instance" "my_instance" {
   }
 }
 
+resource "aws_volume_attachment" "ebs_volume" {
+  count       = length(aws_instance.my_instance)
+  device_name = "/dev/sdh"
+  volume_id   = aws_ebs_volume.ebs_volume.id
+  instance_id = aws_instance.my_instance[count.index].id
+}
+
+resource "aws_ebs_volume" "ebs_volume" {
+  availability_zone = "ap-south-1a"
+  size		    = var.ebs_volume
+}
+
 # --------------------------------------------------
 # Route Table Association
 # --------------------------------------------------

@@ -32,3 +32,8 @@ variable "dynamodb_table" {
   description = "This is hash key infra-app"
   type        = string
 }
+
+variable "ebs_volume" {
+  description = "This is my ebs volume"
+  type        = number
+}

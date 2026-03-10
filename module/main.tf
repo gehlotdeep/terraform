@@ -7,5 +7,6 @@ module "dev-infra" {
   ec2_ami_id     = "ami-051a31ab2f4d498f5"
   hash_key       = "studentID"
   dynamodb_table = "prd"
+  ebs_volume    = "8"
 }
 
